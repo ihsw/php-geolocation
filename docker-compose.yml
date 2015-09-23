@@ -1,0 +1,10 @@
+base:
+    build: .
+app:
+    image: phpgeolocation_base
+    command: php -S 0.0.0.0:80
+    ports:
+        - "80:80"
+test:
+    image: phpgeolocation_base
+    command: phpunit
