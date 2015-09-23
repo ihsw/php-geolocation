@@ -5,4 +5,4 @@ EXPOSE 80
 COPY ./app /srv/app
 WORKDIR /srv/app
 
-CMD ['php', './phpinfo.php']
+CMD ["php", "-S", "0.0.0.0:80"]
