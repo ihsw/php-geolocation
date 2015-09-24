@@ -12,6 +12,4 @@ app:
         - db:db
 test:
     image: phpgeolocation_base
-    command: phpunit
-    links:
-        - db:db
+    command: phpunit ./tests
