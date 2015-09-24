@@ -1,10 +1,17 @@
+db:
+    build: db
+    command: psql --help
 base:
-    build: .
+    build: app
 app:
     image: phpgeolocation_base
     command: php -S 0.0.0.0:80
     ports:
         - "80:80"
+    links:
+        - db:db
 test:
     image: phpgeolocation_base
     command: phpunit
+    links:
+        - db:db
