@@ -1,0 +1,6 @@
+docker-compose stop \
+  && docker-compose rm -f \
+  && docker ps -a | grep -i exited | awk '{print $1}' | xargs docker rm \
+  && docker images | grep -i phpgeo | awk '{print $3}' | xargs docker rmi \
+  && docker-compose build \
+  && docker-compose run test

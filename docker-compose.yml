@@ -1,15 +1,24 @@
-db:
-    build: db
-    command: psql --help
-base:
-    build: app
-app:
-    image: phpgeolocation_base
-    command: php -S 0.0.0.0:80
+web:
+    build: ./web
+    command: nginx
     ports:
-        - "80:80"
+        - 80:80
+    links:
+        - php-fpm:php-fpm
+
+db:
+    build: ./db
+    command: postgres
+
+base:
+    build: ./app
+php-fpm:
+    image: phpgeolocation_base
+    command: php-fpm
     links:
         - db:db
 test:
     image: phpgeolocation_base
     command: phpunit ./tests
+    links:
+        - db:db
