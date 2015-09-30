@@ -1,0 +1,3 @@
+#! /bin/bash
+
+docker rm $(docker ps -a | grep -i exited | awk '{print $1}')
