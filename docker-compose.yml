@@ -16,7 +16,7 @@ php-fpm:
     links:
         - db:db
 test:
-    image: ihsw/null
+    image: ihsw/php-geolocation-php-fpm
     command: bash -c "sleep 5 && phpunit ./tests"
     links:
         - db:db
