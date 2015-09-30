@@ -1,0 +1,15 @@
+{
+    "name": "root/app",
+    "authors": [
+        {
+            "name": "Adrian Parker",
+            "email": "ihsw.aparker@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ihsw\\": "src"
+        }
+    },
+    "require": {}
+}

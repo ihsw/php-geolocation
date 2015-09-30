@@ -1,5 +1,7 @@
 <?php
 
+use Ihsw\Hello;
+
 const CONN_DSN = 'pgsql:dbname=postgres;host=db';
 const CONN_USER = 'postgres';
 const CONN_PASSWORD = '';
@@ -18,7 +20,7 @@ class HelloTest extends \PHPUnit_Framework_testCase
     );
   }
 
-  public function testHello()
+  public function testHasHeroes()
   {
     $query = $this->conn->prepare('SELECT * FROM Heroes');
     $query->execute();
