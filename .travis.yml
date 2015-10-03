@@ -1,3 +1,4 @@
+sudo: false
 language: php
 services: postgres
 php:
@@ -11,7 +12,8 @@ env:
   - ENV=travis
 
 before_script:
-  - psql -f ./db/container-files/docker-entrypoint-initdb.d/db.sql
+  - psql -c 'CREATE DATABASE postgres;' -U postgres
+  - psql -f ./db/container-files/docker-entrypoint-initdb.d/db.sql -U postgres
   - cd ./base/src
   - composer install
 script:
