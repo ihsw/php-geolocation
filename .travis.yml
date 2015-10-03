@@ -14,7 +14,6 @@ env:
 before_script:
   - psql -f ./db/container-files/docker-entrypoint-initdb.d/db.sql -U postgres
   - cd ./base/src
-  - composer self-update
   - composer install
 script:
   - phpunit
