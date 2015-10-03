@@ -17,6 +17,4 @@ php-fpm:
         - db:db
 test:
     image: ihsw/php-geolocation-php-fpm
-    command: ./run-tests.sh
-    links:
-        - db:db
+    command: phpunit
