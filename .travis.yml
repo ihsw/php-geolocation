@@ -9,6 +9,7 @@ php:
 
 before_script:
   - cd ./base/src
+  - composer install
 
 script:
   - phpunit
