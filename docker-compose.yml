@@ -13,8 +13,14 @@ db:
 php-fpm:
     image: ihsw/php-geolocation-php-fpm
     command: php5-fpm -F
+    environment:
+        - ENV=docker
     links:
         - db:db
 test:
     image: ihsw/php-geolocation-php-fpm
-    command: phpunit
+    command: ./run-tests.sh
+    environment:
+        ENV: docker
+    links:
+        - db:db

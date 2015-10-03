@@ -1,15 +1,18 @@
 language: php
+services: postgres
 php:
   - 5.4
   - 5.5
   - 5.6
   - hhvm
   - 7.0
-  - DB=pgsql
+
+env:
+  - ENV=travis
 
 before_script:
+  - psql -f ./db/container-files/docker-entrypoint-initdb.d/db.sql
   - cd ./base/src
   - composer install
-
 script:
   - phpunit
