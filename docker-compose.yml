@@ -14,13 +14,13 @@ php-fpm:
     image: ihsw/php-geolocation-php-fpm
     command: php5-fpm -F
     environment:
-        - ENV=docker
+        - ENV=local
     links:
         - db:db
 test:
     image: ihsw/php-geolocation-php-fpm
     command: ./run-tests.sh
     environment:
-        ENV: docker
+        ENV: local
     links:
         - db:db
